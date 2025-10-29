@@ -1,6 +1,6 @@
 name: custom_text_field_pro
 description: A reusable CustomTextField widget with label, prefix/suffix icons, validation, and password toggle.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/Asik-Zaman/custom_text_field_pro
 
 environment:

@@ -32,8 +32,8 @@ class CustomTextFieldPro extends StatefulWidget {
   final int maxLines;
   final TextCapitalization capitalization;
   final double borderRadius;
-  final IconData? prefixIcon;
-  final IconData? suffixIcon;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final double suffixIconSize;
   final List<TextInputFormatter>? inputFormatters;
   final CustomTextFieldTheme? theme;
@@ -138,8 +138,8 @@ class _CustomTextFieldProState extends State<CustomTextFieldPro> {
             fillColor: theme.fillColor,
             labelText: widget.showLabelText ? widget.labelText : null,
             hintText: widget.hintText,
-            labelStyle: const TextStyle(color: Colors.grey),
-            hintStyle: const TextStyle(color: Colors.grey),
+            labelStyle: theme.labelStyle,
+            hintStyle: theme.hintStyle,
             enabled: widget.isEnabled,
             contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
             border: OutlineInputBorder(
@@ -158,7 +158,7 @@ class _CustomTextFieldProState extends State<CustomTextFieldPro> {
                 ? _buildCountryCodePicker(theme)
                 : (widget.prefixIcon != null
                     ? IconButton(
-                        icon: Icon(widget.prefixIcon, color: theme.iconColor),
+                        icon: widget.prefixIcon!,
                         onPressed: widget.onPrefixTap,
                       )
                     : null),
@@ -181,7 +181,7 @@ class _CustomTextFieldProState extends State<CustomTextFieldPro> {
       );
     } else if (widget.suffixIcon != null) {
       return IconButton(
-        icon: Icon(widget.suffixIcon, color: theme.iconColor),
+        icon: widget.suffixIcon!,
         onPressed: widget.onSuffixTap,
       );
     }

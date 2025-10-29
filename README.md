@@ -23,7 +23,7 @@ Or add it manually to your **pubspec.yaml**:
 
 ```yaml
 dependencies:
-  custom_text_field_pro: ^0.1.0
+  custom_text_field_pro: ^0.1.1
 ```
 
 Then run:
