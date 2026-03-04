@@ -15,6 +15,10 @@ class CustomTextFieldTheme {
   final TextStyle? labelStyle;
   final TextStyle? hintStyle;
   final TextStyle? errorStyle;
+  final TextStyle? titleStyle;
+  final double? bottomSheetHeight;
+  final double? pickerRadius;
+  final InputDecoration? pickerDecoration;
 
   const CustomTextFieldTheme({
     this.borderColor = const Color(0xFFBFBFBF),
@@ -30,6 +34,10 @@ class CustomTextFieldTheme {
     this.labelStyle,
     this.hintStyle,
     this.errorStyle,
+    this.titleStyle,
+    this.bottomSheetHeight,
+    this.pickerRadius,
+    this.pickerDecoration,
   });
 
   CustomTextFieldTheme copyWith({
@@ -46,6 +54,10 @@ class CustomTextFieldTheme {
     TextStyle? labelStyle,
     TextStyle? hintStyle,
     TextStyle? errorStyle,
+    TextStyle? titleStyle,
+    double? bottomSheetHeight,
+    double? pickerRadius,
+    InputDecoration? pickerDecoration,
   }) {
     return CustomTextFieldTheme(
       borderColor: borderColor ?? this.borderColor,
@@ -61,6 +73,10 @@ class CustomTextFieldTheme {
       labelStyle: labelStyle ?? this.labelStyle,
       hintStyle: hintStyle ?? this.hintStyle,
       errorStyle: errorStyle ?? this.errorStyle,
+      titleStyle: titleStyle ?? this.titleStyle,
+      bottomSheetHeight: bottomSheetHeight ?? this.bottomSheetHeight,
+      pickerRadius: pickerRadius ?? this.pickerRadius,
+      pickerDecoration: pickerDecoration ?? this.pickerDecoration,
     );
   }
 }
