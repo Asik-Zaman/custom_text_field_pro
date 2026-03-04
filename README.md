@@ -17,13 +17,13 @@ With Flutter:
 
 ```bash
 flutter pub add custom_text_field_pro
-````
+```
 
 Or add it manually to your **pubspec.yaml**:
 
 ```yaml
 dependencies:
-  custom_text_field_pro: ^0.1.1
+  custom_text_field_pro: ^1.0.0
 ```
 
 Then run:
@@ -112,13 +112,13 @@ class ExampleApp extends StatelessWidget {
 
 ## 🎯 Key Features
 
-| Feature | Description |
-| --- | --- |
-| **🔐 Password Mode** | Toggle visibility for secure inputs |
-| **📱 Country Picker** | Optional dropdown for phone fields |
-| **🎨 Custom Theme** | Control all colors globally |
-| **✨ Icons** | Add prefix & suffix icons easily |
-| **🧩 Reusable** | Consistent design across app |
+| Feature               | Description                         |
+| --------------------- | ----------------------------------- |
+| **🔐 Password Mode**  | Toggle visibility for secure inputs |
+| **📱 Country Picker** | Optional dropdown for phone fields  |
+| **🎨 Custom Theme**   | Control all colors globally         |
+| **✨ Icons**          | Add prefix & suffix icons easily    |
+| **🧩 Reusable**       | Consistent design across app        |
 
 ---
 
@@ -133,6 +133,9 @@ const customTheme = CustomTextFieldTheme(
   fillColor: Colors.white,
   iconColor: Colors.deepPurple,
   titleColor: Colors.black,
+  titleStyle: TextStyle(fontWeight: FontWeight.bold),
+  bottomSheetHeight: 500,
+  pickerRadius: 16,
 );
 ```
 
@@ -153,8 +156,8 @@ theme: customTheme.copyWith(
 CustomTextFieldPro(
   titleText: "Email",
   hintText: "example@gmail.com",
-  prefixIcon: Icons.email_outlined,
-  suffixIcon: Icons.check_circle_outline,
+  prefixIcon: const Icon(Icons.email_outlined),
+  suffixIcon: const Icon(Icons.check_circle_outline),
   theme: customTheme,
 );
 ```
@@ -167,6 +170,9 @@ CustomTextFieldPro(
   hintText: "Enter your phone number",
   showCountryCodePicker: true,
   initialCountryCode: '+1',
+  onCountryCodeChanged: (code) {
+    print("Selected code: $code");
+  },
   theme: customTheme,
 );
 ```
@@ -188,6 +194,7 @@ const customTextFieldTheme = CustomTextFieldTheme(
   fillColor: Color(0xFFF7F9FB),
   iconColor: Colors.deepPurple,
   titleColor: Color(0xFF202532),
+  pickerRadius: 12,
 );
 ```
 
@@ -208,19 +215,22 @@ CustomTextFieldPro(
 
 ## 🧩 Parameters Overview
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `titleText` | `String` | Optional title text above input |
-| `labelText` | `String` | Label for text field |
-| `hintText` | `String` | Placeholder text |
-| `isPassword` | `bool` | Enables password toggle |
-| `prefixIcon` | `IconData` | Icon before text |
-| `suffixIcon` | `IconData` | Icon after text |
-| `onSuffixTap` | `VoidCallback` | Callback on suffix tap |
-| `showCountryCodePicker` | `bool` | Enables country picker |
-| `initialCountryCode` | `String` | Default country code |
-| `theme` | `CustomTextFieldTheme` | Global color & style config |
-
+| Parameter               | Type                   | Description                        |
+| ----------------------- | ---------------------- | ---------------------------------- |
+| `titleText`             | `String`               | Optional title text above input    |
+| `labelText`             | `String`               | Label for text field               |
+| `hintText`              | `String`               | Placeholder text                   |
+| `isPassword`            | `bool`                 | Enables password toggle            |
+| `prefixIcon`            | `Widget`               | Icon before text                   |
+| `prefixIconConstraints` | `BoxConstraints`       | Constraints for the prefix icon    |
+| `suffixIcon`            | `Widget`               | Icon after text                    |
+| `suffixIconConstraints` | `BoxConstraints`       | Constraints for the suffix icon    |
+| `onPrefixTap`           | `VoidCallback`         | Callback on prefix tap             |
+| `onSuffixTap`           | `VoidCallback`         | Callback on suffix tap             |
+| `showCountryCodePicker` | `bool`                 | Enables country picker             |
+| `initialCountryCode`    | `String`               | Default country code               |
+| `onCountryCodeChanged`  | `Function(String)`     | Callback when country code changes |
+| `theme`                 | `CustomTextFieldTheme` | Global color & style config        |
 
 ## 🚨 Troubleshooting
 
@@ -236,8 +246,7 @@ Check that you passed `theme: customTheme` to the widget.
 
 ## 📜 License
 
-MIT - See [LICENSE](https://chatgpt.com/c/LICENSE) for details.
+MIT - See [LICENSE](/LICENSE)for details.
 
 Made with ❤️ by Md. Asikuzzaman
 GitHub: https://github.com/Asik-Zaman
-
